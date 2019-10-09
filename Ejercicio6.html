@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <script>
+            var arr = [1,'dos','tres',4,5,6,'siete',8,9,'diez'];
+//Crear una función llamada sortList() la cual debe ser ejecutada al presionar el botón “Clasificar Arreglo”
+            function sortList(){
+                var odd_list = document.getElementById('impar');
+                var even_list = document.getElementById('par');
+                var string_list = document.getElementById('string');
+         
+            arr.forEach(function(ele){
+                var li = document.createElement('li');
+                li.innerHTML = ele;
+
+                switch(typeof(ele)){
+                    case 'number': 
+                        if(isOdd(ele)){
+                            odd_list.appendChild(li);
+                        } else {
+                            even_list.appendChild(li);
+                        }
+                    break;
+                    case 'string': 
+                        string_list.appendChild(li);
+                    break;
+                }
+             });
+            }
+            function isOdd(num){
+                return num % 2;
+            }
+        </script>
+    </head>
+
+    <body>
+        <button onclick="sortList()">Clasificar Arreglo</button>
+        <ul id="par">
+        <strong>Pares</strong>
+        </ul>
+        <ul id="impar">
+        <strong>Impares</strong>
+        </ul>
+        <ul id="string">
+        <strong>Strings</strong>
+        </ul>
+     
+    </body>
+</html>
